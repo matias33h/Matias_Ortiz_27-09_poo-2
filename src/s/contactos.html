@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Contactos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Tareas.html">Lista de Tareas</a></li>
+                <li><a href="/CalculadoraGeo.html">Calculadora de Geometria</a></li>
+                <li><a href="/bibliotecaVir.html">Biblioteca Virtual</a></li>
+                <li><a href="/mascotas.html">Mascotas Virtuales</a></li>
+                <li><a href="/contactos.html">Gestor de Contactos</a></li>
+             
+        </nav>
+    </header>
+
+    <h1>Gestor de Contactos</h1>
+
+    <div class="container">
+        <div class="card formulario">
+            <h2>Agregar Contacto</h2>
+            <br>    
+            <br>    
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+            <br>
+            <br>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="text" id="correo">
+            <br>
+            <br>
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="text" id="telefono">
+            <br>
+            <br>
+            <button id="agregar">Agregar</button>
+        </div>
+
+        <div class="card busqueda">
+            <h2>Buscar Contacto</h2>
+            <label for="buscarNombre">Buscar por Nombre:</label>
+            <br>
+            <input type="text" id="buscarNombre">
+            <button id="buscar">Buscar</button>
+            <br>
+        </div>
+    </div>
+
+    <div class="card lista">
+        <h2>Lista de Contactos</h2>
+        <ul id="listaContactos">
+          
+
+        </ul>
+    </div>
+
+    <script src="contactos.ts"></script>
+</body>
+</html>

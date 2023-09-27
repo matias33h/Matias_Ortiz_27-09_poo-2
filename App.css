@@ -1,0 +1,190 @@
+Estilos para la página en general
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center; /* Para centrar el contenido interno horizontalmente */
+  justify-content: center;
+} 
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex; /* Usa flexbox para centrar vertical y horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  min-height: 100vh; /* Asegura que ocupa al menos todo el alto de la pantalla */
+  background-image: url("/assets/28692_1604175668_banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.Main {
+  max-width: 600px;
+  margin-top: 0 auto;
+  padding: 20px;
+}
+
+
+
+h1 {
+  color: #181616;
+}
+
+
+.title-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.title {
+  margin: 0; /* Elimina el margen predeterminado de los elementos h1 */
+  font-size: 2rem; /* Tamaño de fuente personalizado */
+  color: #ffffff; /* Color de texto personalizado */
+}
+.title1 {
+  margin: 0; /* Elimina el margen predeterminado de los elementos h1 */
+  font-size: 2rem; /* Tamaño de fuente personalizado */
+  color: #df1919; /* Color de texto personalizado */
+}
+/* Estilos para el formulario de agregar tarea */
+.task-form {
+  margin-bottom: 20px;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  background-color: #5e2d84;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para la lista de tareas */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-card {
+  background-color:rgb(145, 143, 143);
+  border: 1px solid #5e2d84;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-card.completed {
+  background-color: #d6cbcb;
+}
+
+.task-card span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+/* .complete-button {
+  background-color: #2ecc71;
+  color: rgb(255, 235, 235);
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+ */
+
+ .complete-button,
+ .delete-button {
+   border: none;
+   cursor: pointer;
+   transition: background-color 0.3s, color 0.3s; /* Agrega una transición suave */
+ }
+ 
+ .complete-button {
+   background-color: #2ecc71;
+   color: rgb(252, 255, 235);
+ }
+ 
+ .delete-button {
+   background-color: #150d8b;
+   color: white;
+ }
+ 
+ .complete-button:hover,
+ .delete-button:hover {
+   background-color: #d39c05; /* Cambia el color al pasar el cursor */
+   color: white;
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+.task-card {
+  background-color: rgba(122, 207, 203, 0.521);
+  border: 1px solid #2a955a;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.task-card.completed {
+  /* background-color: rgb(65, 99, 44); */
+  background-color: rgb(186, 207, 173);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: 1px solid #32cd32;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.complete-button {
+  background-color: #24b124;
+}
+
+.delete-button {
+  background-color: #e62b2b;
+}
+
+/* Si deseas ajustar o personalizar más los estilos, puedes hacerlo aquí */

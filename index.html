@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" type="text/css" href="App.css">
+</head>
+<body>
+    <div class="Main">
+        <div class="title-container">
+            <h1 class="title">Tienda de Electrodomésticos</h1>
+        </div>
+        <h4>Gestión de Inventario</h4>
+        <div class="inventory-form">
+            <input
+                type="text"
+                placeholder="Nombre del Producto"
+                id="nombreProducto"
+            />
+            <input
+                type="number"
+                placeholder="Precio del Producto"
+                id="precioProducto"
+            />
+            <input
+                type="number"
+                placeholder="Cantidad en Stock"
+                id="cantidadProducto"
+            />
+            <button id="agregarProductoButton">Agregar Producto</button>
+        </div>
+        <div class="sales-form">
+            <h4>Realizar Venta</h4>
+            <select id="productoVenta">
+                <!-- Aquí debes cargar dinámicamente los productos del inventario usando JavaScript -->
+            </select>
+            <input
+                type="number"
+                placeholder="Cantidad a Vender"
+                id="cantidadVenta"
+            />
+            <button id="realizarVentaButton">Realizar Venta</button>
+        </div>
+        <div class="product-info">
+            <!-- Aquí puedes mostrar la información detallada del producto seleccionado -->
+        </div>
+        <ul class="product-list" id="productList">
+            <!-- Aquí puedes mostrar la lista de productos disponibles en el inventario -->
+        </ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

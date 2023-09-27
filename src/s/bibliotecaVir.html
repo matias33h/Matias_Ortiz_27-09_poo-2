@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .libro {
+            border: 1px solid #ebdbdb;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+        }
+        
+        .alumno {
+            border-radius: 5px;
+            border: 1px solid #e1dede;
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+        
+        .tarjeta-libro {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #f5f2f2;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Tareas.html">Lista de Tareas</a></li>
+                <li><a href="/CalculadoraGeo.html">Calculadora de Geometria</a></li>
+                <li><a href="/bibliotecaVir.html">Biblioteca Virtual</a></li>
+                <li><a href="/mascotas.html">Mascotas Virtuales</a></li>
+                <li><a href="/contactos.html">Gestor de Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <h1>Biblioteca Virtual</h1>
+    
+    <!-- Sección Biblioteca -->
+    <!-- <h2>Biblioteca</h2> -->
+    <div class="libro">
+        <h3>Biblioteca los Tres Duques</h3>
+        <p>Esta seccion esta pensada solo para los administrativos de la biblioteca </span></p>
+        <p>Los Administrativos y directivos de la biblioteca pueden agregar diversos libros y historietas </span></p>
+        <button onclick="agregarLibro()">Agregar Libro</button>
+    </div>
+    
+    <div id="biblioteca">
+        <!-- Aquí se agregarán las tarjetas de libros -->
+    </div>
+    
+    <!-- Sección Alumnos -->
+    <h2>Alumnos</h2>
+    <div class="alumno">
+        <h3>Alumno 1</h3>
+        <p>Libro prestado: <span id="libroPrestadoAlumno1">Ninguno</span></p>
+        <input type="text" id="nombreLibroAlumno1" placeholder="Nombre del Libro">
+        <button onclick="solicitarPrestamo('Alumno 1', 'libroPrestadoAlumno1', 'nombreLibroAlumno1')">Solicitar Libro</button>
+        <button onclick="devolverLibro('Alumno 1', 'libroPrestadoAlumno1')">Devolver Libro</button>
+    </div>
+
+    <script>
+        class Libro {
+            constructor(titulo, autor) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.prestado = false;
+            }
+
+            prestar() {
+                if (!this.prestado) {
+                    this.prestado = true;
+                }
+            }
+
+            devolver() {
+                if (this.prestado) {
+                    this.prestado = false;
+                }
+            }
+
+            estaPrestado() {
+                return this.prestado ? "Prestado" : "Disponible";
+            }
+        }
+
+        const biblioteca = [];
+        const alumnos = {};
+
+        // Función para agregar un libro a la biblioteca
+        function agregarLibro() {
+            const titulo = prompt("Ingrese el título del libro:");
+            const autor = prompt("Ingrese el autor del libro:");
+
+            if (titulo && autor) {
+                const libro = new Libro(titulo, autor);
+                biblioteca.push(libro);
+                actualizarBiblioteca();
+            }
+        }
+
+        // Función para actualizar la sección de la biblioteca
+        function actualizarBiblioteca() {
+            const bibliotecaDiv = document.getElementById("biblioteca");
+            bibliotecaDiv.innerHTML = "";
+            
+            biblioteca.forEach((libro, index) => {
+                const libroDiv = document.createElement("div");
+                libroDiv.classList.add("tarjeta-libro");
+                libroDiv.innerHTML = `
+                    <h3>${libro.titulo}</h3>
+                    <p>Autor: ${libro.autor}</p>
+                    <p>Estado: ${libro.estaPrestado()}</p>
+                `;
+                bibliotecaDiv.appendChild(libroDiv);
+            });
+        }
+
+        // Función para solicitar un préstamo de libro por un alumno
+        function solicitarPrestamo(alumno, estadoId, nombreLibroId) {
+            if (!alumnos[alumno]) {
+                alumnos[alumno] = { libroPrestado: null };
+            }
+
+            if (alumnos[alumno].libroPrestado === null) {
+                const nombreLibro = document.getElementById(nombreLibroId).value;
+                const libroSeleccionado = biblioteca.find(libro => libro.titulo === nombreLibro);
+
+                if (libroSeleccionado) {
+                    libroSeleccionado.prestar();
+                    alumnos[alumno].libroPrestado = libroSeleccionado;
+                    document.getElementById(estadoId).textContent = libroSeleccionado.titulo;
+                    actualizarBiblioteca();
+                } else {
+                    alert("Libro no encontrado en la biblioteca.");
+                }
+            } else {
+                alert("El alumno ya tiene un libro prestado.");
+            }
+        }
+
+        // Función para devolver un libro por un alumno
+        function devolverLibro(alumno, estadoId) {
+            if (alumnos[alumno] && alumnos[alumno].libroPrestado) {
+                const libroDevuelto = alumnos[alumno].libroPrestado;
+                libroDevuelto.devolver();
+                document.getElementById(estadoId).textContent = "Ninguno";
+                alumnos[alumno].libroPrestado = null;
+                actualizarBiblioteca();
+            } else {
+                alert("El alumno no tiene un libro prestado.");
+            }
+        }
+    </script>
+</body>
+</html>

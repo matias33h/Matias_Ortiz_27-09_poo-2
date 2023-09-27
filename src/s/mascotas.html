@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas Virtuales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Tareas.html">Lista de Tareas</a></li>
+                <li><a href="/CalculadoraGeo.html">Calculadora de Geometria</a></li>
+                <li><a href="/bibliotecaVir.html">Biblioteca Virtual</a></li>
+                <li><a href="/mascotas.html">Mascotas Virtuales</a></li>
+                <li><a href="/contactos.html">Gestor de Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <h1>Mascota Virtual</h1>
+        <div class="status">
+               <img id="imagenMascota" src="" alt="Imagen de la mascota">
+            <h2>Status de la Mascota</h2>
+            <p id="nombre"></p>
+            <p id="felicidad"></p>
+            <p id="hambre"></p>
+            <p id="energia"></p>
+        </div>
+        <div class="actions">
+            <h2>Acciones</h2>
+            <button id="alimentar">Alimentar</button>
+            <button id="jugar">Jugar</button>
+            <button id="descansar">Descansar</button>
+        </div>
+           <div class="imagen-input">
+            <input type="text" id="nombreMascota" placeholder="Nombre de la mascota">
+            <button id="confirmarNombre">Confirmar Nombre</button>
+            <input type="text" id="urlImagen" placeholder="URL de la imagen">
+            <button id="cargarImagen">Cargar Imagen</button>
+        </div>
+    </div>
+    <script src="mascotas.ts"></script>
+</body>
+</html>
+
